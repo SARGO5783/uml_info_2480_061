@@ -7,8 +7,13 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="../includes/css/class.css" rel="stylesheet"/>
     <link href="../includes/css/mycss.css" rel="stylesheet"/>
+    
 </head>
 <body>
+<cfparam name= "p" default= "carousel" /> 
+<cfset bookstoreFunctions = createObject("bookstore") />
+<cfinclude template="stateInfo.cfm" />
+
 <div id="wrapper" class="container">
     <cfinclude template= "header.cfm" />
     <div id="horizontalnav" class="row">
@@ -16,8 +21,12 @@
         
     </div>
     <div id="maincontent" class="row">
-        <cfinclude template= "carousel.cfm" />
-        <cfinclude template= "genrenav.cfm"/>
+        <section id="center" class="col-sm-9 order-last">
+            <cfinclude template = "#p#.cfm" />
+        </section>
+        <section id="left" class="col-sm-3 order-first">
+            <cfinclude template= "genrenav.cfm"/>
+        </section>
     </div>
     <cfinclude template= "footer.cfm" />
 </div>
